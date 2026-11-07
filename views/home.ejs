@@ -1,27 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EJS Practice</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EJS Practice</title>
 </head>
+
 <body>
-    <h1>EJS Practice</h1>
-    <h2>Hello, <%= person.name %></h2>
-    <h3>Occupation, <%= person.occupation %></h3>
-    <h3>Favorite Color, <%= person.favoriteColor %></h3>
+    <%- include('partials/header') %>
+        <main>
+            <h2>Hello, <%= person.name %>
+            </h2>
+            <h3>Occupation, <%= person.occupation %>
+            </h3>
+            <h3>Favorite Color, <%= person.favoriteColor %>
+            </h3>
 
+            <% if (['plumber', 'organist' , 'bagpiper' ].includes(person.occupation.toLowerCase())) { %>
+                <p>You work with pipes!</p>
+                <% } else { %>
+                    <p>That's an interesting job!</p>
+                    <% } %>
 
-<% if (['plumber', 'organist', 'bagpiper'].includes(person.occupation.toLowerCase())) { %>
-  <p>You work with pipes!</p>
-<% } else { %>
-  <p>That's an interesting job!</p>
-<% } %>
-
-<% if (person.favoriteColor === 'black') { %>
-  <p>Black is a cool color!</p>
-<% } else { %>
-  <p>Nice color choice!</p>
-<% } %>
+                        <% if (person.favoriteColor==='black' ) { %>
+                            <p>Black is a cool color!</p>
+                            <% } else { %>
+                                <p>Nice color choice!</p>
+                                <% } %>
+        </main>
+        <%- include('partials/footer') %>
 </body>
+
 </html>
