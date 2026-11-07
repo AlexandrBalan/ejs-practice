@@ -19,5 +19,17 @@ app.get("/", (req, res) => {
     res.render('home', {person})
 })
 
+// Route to friends. Renders friends ejs page
+app.get("/friends", (req, res) => {
+    const friends = ["Mickey", "Goofy", "Minnie", "Dasiy"];
+    res.render("friends", {friends});
+})
+
+// Route to movie. Renders all movies
+app.get("/movies", (req, res) => {
+    const movies = ["Transformers", "Fast and furious", "IT", "Resident Evil"];
+    res.render("movies", {movies});
+})
+
 // start the server
 app.listen(PORT, () => console.log(`Server running on http://localhost:${PORT}`));
